@@ -69,3 +69,115 @@ SansiFy-Tech aims to democratize financial access by offering a single, affordab
 - **API Keys**: The `lib/core/config/api_keys.dart` file aligns with the need for external integrations (UPI, stocks) as outlined.
 - **UI & Localization**: `lib/l10n/` and `lib/theme/` support the multilingual, user-friendly design in the vision.
 - **Scalability**: The structure’s separation of core utilities and feature-specific code supports the roadmap and future growth.
+- 
+
+### **File Strcuture**
+```
+sansify_tech/
+├── android/                 # Android-specific files
+├── ios/                     # iOS-specific files
+├── lib/                     # Main Flutter code
+│   ├── core/                # Core utilities and services
+│   │   ├── config/          # App configurations (API keys, constants)
+│   │   │   ├── api_keys.dart  # API keys for external services
+│   │   │   └── constants.dart # App-wide constants
+│   │   ├── models/          # Data models for all features
+│   │   │   ├── user_model.dart
+│   │   │   ├── transaction_model.dart
+│   │   │   ├── stock_model.dart
+│   │   │   ├── ledger_entry_model.dart
+│   │   │   └── savings_goal_model.dart
+│   │   ├── services/        # Firebase and external API services
+│   │   │   ├── auth_service.dart
+│   │   │   ├── firestore_service.dart
+│   │   │   ├── upi_service.dart
+│   │   │   ├── stock_api_service.dart
+│   │   │   └── notification_service.dart
+│   │   └── utils/           # Helper functions
+│   │       ├── date_utils.dart
+│   │       ├── currency_formatter.dart
+│   │       └── validation_utils.dart
+│   ├── features/            # Feature-specific modules
+│   │   ├── auth/            # Authentication feature
+│   │   │   ├── screens/
+│   │   │   │   ├── login_screen.dart
+│   │   │   │   └── signup_screen.dart
+│   │   │   ├── providers/
+│   │   │   │   └── auth_provider.dart
+│   │   ├── dashboard/       # Main dashboard
+│   │   │   ├── screens/
+│   │   │   │   └── dashboard_screen.dart
+│   │   │   ├── widgets/
+│   │   │   │   ├── portfolio_summary.dart
+│   │   │   │   └── pending_transactions.dart
+│   │   │   ├── providers/
+│   │   │   │   └── dashboard_provider.dart
+│   │   ├── upi_payments/    # UPI payments feature
+│   │   │   ├── screens/
+│   │   │   │   ├── upi_send_screen.dart
+│   │   │   │   └── upi_receive_screen.dart
+│   │   │   ├── widgets/
+│   │   │   │   ├── upi_form.dart
+│   │   │   │   └── transaction_history.dart
+│   │   │   ├── providers/
+│   │   │   │   └── upi_provider.dart
+│   │   │   └── models/
+│   │   │       └── upi_transaction_model.dart
+│   │   ├── stock_tracker/   # Stock portfolio tracker
+│   │   │   ├── screens/
+│   │   │   │   ├── stock_input_screen.dart
+│   │   │   │   └── portfolio_dashboard.dart
+│   │   │   ├── widgets/
+│   │   │   │   ├── stock_card.dart
+│   │   │   │   └── profit_loss_chart.dart
+│   │   │   ├── providers/
+│   │   │   │   └── stock_provider.dart
+│   │   │   └── models/
+│   │   │       └── stock_model.dart
+│   │   ├── khata_book/      # KhataBook-style ledger
+│   │   │   ├── screens/
+│   │   │   │   ├── ledger_screen.dart
+│   │   │   │   └── transaction_form.dart
+│   │   │   ├── widgets/
+│   │   │   │   ├── ledger_entry_card.dart
+│   │   │   ├── providers/
+│   │   │   │   └── ledger_provider.dart
+│   │   │   └── models/
+│   │   │       └── ledger_entry_model.dart
+│   │   ├── savings_game/    # Gamified savings feature
+│   │   │   ├── screens/
+│   │   │   │   ├── challenge_screen.dart
+│   │   │   │   └── rewards_screen.dart
+│   │   │   ├── widgets/
+│   │   │   │   ├── progress_bar.dart
+│   │   │   │   └── badge_widget.dart
+│   │   │   ├── providers/
+│   │   │   │   └── savings_provider.dart
+│   │   │   └── models/
+│   │   │       └── savings_goal_model.dart
+│   │   └── settings/        # App settings
+│   │       ├── screens/
+│   │       │   └── settings_screen.dart
+│   │       ├── providers/
+│   │       │   └── settings_provider.dart
+│   ├── l10n/                # Localization files
+│   │   ├── app_en.arb       # English translations
+│   │   └── app_hi.arb       # Hindi translations
+│   ├── theme/               # App-wide theme
+│   │   ├── app_theme.dart
+│   │   └── colors.dart
+│   ├── widgets/             # Reusable UI components
+│   │   ├── custom_button.dart
+│   │   ├── custom_text_field.dart
+│   │   └── transaction_card.dart
+│   └── main.dart            # App entry point
+├── assets/                  # Static assets
+│   ├── images/              # Icons, logos, etc.
+│   ├── fonts/               # Custom fonts
+├── test/                    # Unit and widget tests
+│   ├── unit_tests/
+│   ├── widget_tests/
+├── pubspec.yaml             # Dependencies and metadata
+├── .gitignore               # Files to exclude from version control
+└── firebase.json            # Firebase configuration
+```
